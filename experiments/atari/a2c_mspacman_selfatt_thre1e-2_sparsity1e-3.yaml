@@ -1,0 +1,62 @@
+GPUS: '0'
+DATA_DIR: ''
+OUTPUT_DIR: 'output'
+LOG_DIR: 'log'
+WORKERS: 4
+PRINT_FREQ: 100
+
+cuda: True
+cuda_deterministic: False
+
+lr: 0.0007
+eps: 0.00001
+alpha: 0.99
+gamma: 0.99
+use_gae: False
+gae_lambda: 0.95
+
+algo: 'a2c'
+env_name: 'MsPacmanNoFrameskip-v4'
+
+num_processes: 16
+num_steps: 5
+log_interval: 250
+save_interval: 1250
+eval_interval: 1250
+num_env_steps: 10000000
+recurrent_policy: False
+
+RESUME: False
+
+feat_from_selfsup_attention: False
+feat_add_selfsup_attention: True
+feat_mul_selfsup_attention_mask: True
+SELFSUP_ATTENTION:
+  NUM_KEYPOINTS: 7
+  GAUSS_STD: 0.1
+  AUTOENCODER_LOSS: True
+  KEYPOINTER_CLS_AGNOSTIC: True
+  HEATMAP_SPARSITY_LOSS: True
+  HEATMAP_SPARSITY_LOSS_WEIGHT: 0.001
+  USE_LAYER_NORM: False
+  RECONSTRUCT_LOSS_THRESHOLD: 0.01
+selfsup_attention_fix: False
+selfsup_attention_fix_keypointer: False
+selfsup_attention_feat_masked: True
+selfsup_attention_keyp_maps_pool: True
+selfsup_attention_feat_masked_residual: False
+
+bottom_up_form_num_of_objects: 10
+
+train_selfsup_attention: True
+block_selfsup_attention_grad: False
+
+feat_mul_selfsup_attention_mask_residual: False
+
+MODEL:
+  IMAGE_SIZE:
+    - 84
+    - 84
+DEBUG:
+  DEBUG: False
+
